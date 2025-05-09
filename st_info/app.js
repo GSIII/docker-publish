@@ -1,6 +1,6 @@
 var express = require("express");
 var mysql = require("mysql");
-const env = require("dotenv").config({ path: "/.env" });
+const env = require("dotenv").config({ path: "../.env" });
 var app = express();
 
 var connection = mysql.createConnection({
@@ -21,7 +21,6 @@ connection.connect(function (err) {
 
 app.get("/", function (req, res) {
   connection.query("select * from st_info", function (err, rows, fields) {
-    connection.end();
     if (!err) {
       // res.send(rows);
       res.writeHead(200, {
