@@ -4,6 +4,7 @@ const env = require("dotenv").config({ path: "../.env" });
 var app = express();
 
 var connection = mysql.createConnection({
+  port: process.env.port,
   host: process.env.host,
   user: process.env.user,
   password: process.env.password,
